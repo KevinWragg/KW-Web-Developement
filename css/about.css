@@ -1,0 +1,58 @@
+.rightimage{
+  height:200px;
+  width:200px;
+  border-radius:100px;
+  margin-left:30px;
+  margin-bottom:30px;
+  float:right;
+  background:url("../images/code.jpg");
+  box-shadow: 4px 4px 10px rgba(135, 135, 135, 0.7);
+  border: 1px solid rgba(135, 135, 135, 0.4);
+}
+.leftimage{
+  height:220px;
+  width:220px;
+  border-radius:110px;
+  margin-right:30px;
+  margin-top:25px;
+  margin-bottom:30px;
+  float:left;
+  background:url("../images/phone.jpg");
+  box-shadow: 4px 4px 10px rgba(135, 135, 135, 0.7);
+  border: 1px solid rgba(135, 135, 135, 0.4);
+}
+h3{
+  text-align:justify;
+  line-height: 1.2;
+}
+#headerabout{
+  text-align: center;
+  font-size: 45px;
+}
+.subtitle{
+  width: 200px;
+  height:50px;
+  display:inline-block;
+}
+@media(max-width: 526px){
+  .leftimage{
+    float:none;
+    display:block;
+    margin:auto;
+  }
+}
+@media(max-width: 506px){
+  .rightimage{
+    float:none;
+    display:block;
+    margin:auto;
+  }
+}
+body{
+  background: #8e9eab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
