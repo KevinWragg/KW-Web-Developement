@@ -18,6 +18,13 @@ body{
 .center-block{
   width:200px;
 }
+.contact-jumbotron{
+  margin-top:200px;
+  padding-top:50px;
+  text-align: center;
+  font-family: serif;
+  line-height: 2px;
+}
 #fadein{
   transition: 2.0s;
   display: block;
