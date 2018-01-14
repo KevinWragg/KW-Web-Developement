@@ -1,23 +1,81 @@
 var section = document.querySelector("section");
 var showPageData = document.querySelector("section").innerHTML;
-var holdAboutData = document.querySelector(".holdPageData").innerHTML;
+var holdAboutData = document.querySelector(".holdAboutData").innerHTML;
 var holdHomeData = document.querySelector(".holdHomeData").innerHTML;
+var holdContactData = document.querySelector(".holdContactData").innerHTML;
 var aboutMenu = document.querySelector(".about-menu");
 var homeMenu = document.querySelector(".home-menu");
+var contactMenu = document.querySelector(".contact-menu");
 var homeAnimationPlayed = false;
 var aboutAnimationPlayed = false;
+var contactAnimationPlayed = false;
+var animationsHavePlayed = false;
 var exitedPage = false;
 var firstLoad = true;
+var currentPage = {
+      homePage: homeAnimationPlayed,
+      aboutPage: aboutAnimationPlayed,
+      contactPage: contactAnimationPlayed
+};
 
+
+
+
+//continue to update currentPage #################################
+updateCurrentPage();
 
 
 // Functions######################################################
 
+function animationsPlayed(){
+  if(homeAnimationPlayed || aboutAnimationPlayed || contactAnimationPlayed){
+    animationsHavePlayed = true;
+    return true;
+  }
+  animationsHavePlayed = false;
+  return false;
+}
+
+
+function updateCurrentPage(){
+    window.setTimeout(function(){
+      currentPage.homePage = homeAnimationPlayed;
+      currentPage.aboutPage = aboutAnimationPlayed;
+      currentPage.contactPage = contactAnimationPlayed;
+      updateCurrentPage();
+    },200);
+  }
+
+function resetAllPageLoads(){
+  homeAnimationPlayed = false;
+  aboutAnimationPlayed = false;
+  contactAnimationPlayed = false;
+}
+
+function loadContactPage(){
+  if(exitedPage){
+      exitedPage = false;
+      resetAllPageLoads();
+      section.innerHTML = holdContactData;
+      var contactJumbotron = document.querySelector(".contact-jumbotron");
+      contactJumbotron.classList.add("jackInTheBox");
+      contactJumbotron.classList.add("animated");
+      window.setTimeout(function(){
+        contactAnimationPlayed = true;
+        animationsPlayed();
+      },1000);
+    }
+    else{
+      window.setTimeout(function(){
+        loadContactPage();
+      },200);
+    }
+}
+
 function loadAboutPage(){
   if(exitedPage){
       exitedPage = false;
-      homeAnimationPlayed = false;
-      aboutAnimationPlayed = false;
+      resetAllPageLoads();
       section.innerHTML = holdAboutData;
       var aboutSpacing = document.querySelector(".about-spacing");
       aboutSpacing.classList.remove("jumbotron-styles");
@@ -25,6 +83,7 @@ function loadAboutPage(){
       aboutSpacing.classList.add("animated");
       window.setTimeout(function(){
         aboutAnimationPlayed = true;
+        animationsPlayed();
       },1000);
     }
     else{
@@ -38,6 +97,7 @@ function loadHomepage(){
     if(exitedPage || firstLoad){
       exitedPage = false;
       firstLoad = false;
+      resetAllPageLoads();
       section.insertAdjacentHTML( 'beforeend', holdHomeData );
       createLearnMoreBtn();
       window.setTimeout(function(){
@@ -51,7 +111,7 @@ function loadHomepage(){
             designed.classList.add("tada");
             designed.classList.add("animated");
           }, 490);
-      }, 1000);
+      }, 700);
 
       window.setTimeout(function () {
         var str = "<div id='built' class='col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center headermain'><span class='glyphicon glyphicon-wrench btn-lg' aria-hidden='true'><h1>Built</h1></span></div>";
@@ -62,7 +122,7 @@ function loadHomepage(){
             built.classList.add("tada");
             built.classList.add("animated");
           }, 490);
-      }, 2500);
+      }, 2200);
 
       window.setTimeout(function () {
         var str = "<div id='deployed' class='col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center headermain'><span class='glyphicon glyphicon-ok btn-lg' aria-hidden='true'><h1>Deployed</h1></span></div>";
@@ -74,15 +134,27 @@ function loadHomepage(){
             deployed.classList.add("animated");
               window.setTimeout(function(){
                 homeAnimationPlayed = true;
+                animationsPlayed();
               },300);
           }, 490);
-      }, 4000);
+      }, 3700);
     }
     else{
       window.setTimeout(function(){
         loadHomepage();
-      },1000);
+      },500);
     }
+}
+
+function exitContactPage(){
+  contactAnimationPlayed = false;
+  contactJumbotron = document.querySelector(".contact-jumbotron");
+  contactJumbotron.classList.add("zoomOut");
+  contactJumbotron.classList.add("animated");
+    window.setTimeout(function(){
+      section.innerHTML = "";
+      exitedPage = true;
+    },500);
 }
 
 function exitHomePage(){
@@ -91,7 +163,7 @@ function exitHomePage(){
   jumbotron.classList.add("animated");
   designed.classList.add("zoomOutLeft");
   deployed.classList.add("zoomOutRight");
-  built.classList.add("bounceOut");
+  built.classList.add("zoomOutUp");
     window.setTimeout(function(){
       section.innerHTML = "";
       exitedPage = true;
@@ -112,43 +184,6 @@ function exitAboutPage(){
     },1000);
 }
 
-
-
-loadHomepage();
-
-
-
-
-// Set up event listeners #######################################
-
-homeMenu.addEventListener("click", function(){
-  if(aboutAnimationPlayed){
-    exitAboutPage();
-    loadHomepage();
-  }else{
-    homeMenu.classList.add("shake");
-    homeMenu.classList.add("animated");
-    window.setTimeout(function(){
-      homeMenu.classList.remove("shake");
-    },1000);
-    return;
-  }
-});
-
-aboutMenu.addEventListener("click", function(){
-  if(homeAnimationPlayed){
-    exitHomePage();
-    loadAboutPage();
-  }else{
-    aboutMenu.classList.add("shake");
-    aboutMenu.classList.add("animated");
-    window.setTimeout(function(){
-      aboutMenu.classList.remove("shake");
-    },1000);
-    return;
-  }
-});
-
 function createLearnMoreBtn(){
   var learnMore = document.querySelector(".btn-primary");
     learnMore.addEventListener("click", function(){
@@ -165,3 +200,77 @@ function createLearnMoreBtn(){
       }
     });
 }
+
+
+loadHomepage();
+
+
+
+
+// Set up event listeners #######################################
+
+homeMenu.addEventListener("click", function(){
+  animationsPlayed();
+  if(animationsHavePlayed){
+    switch (true) {
+      case currentPage.homePage: exitHomePage();
+      break;
+      case currentPage.aboutPage: exitAboutPage();
+      break;
+      case currentPage.contactPage: exitContactPage();
+      break;
+    }
+    loadHomepage();
+  }else{
+    homeMenu.classList.add("shake");
+    homeMenu.classList.add("animated");
+    window.setTimeout(function(){
+      homeMenu.classList.remove("shake");
+    },1000);
+    return;
+  }
+});
+
+aboutMenu.addEventListener("click", function(){
+  animationsPlayed();
+  if(animationsHavePlayed){
+    switch (true) {
+      case currentPage.homePage: exitHomePage();
+      break;
+      case currentPage.aboutPage: exitAboutPage();
+      break;
+      case currentPage.contactPage: exitContactPage();
+      break;
+    }
+    loadAboutPage();
+  }else{
+    aboutMenu.classList.add("shake");
+    aboutMenu.classList.add("animated");
+    window.setTimeout(function(){
+      aboutMenu.classList.remove("shake");
+    },1000);
+    return;
+  }
+});
+
+contactMenu.addEventListener("click", function(){
+  animationsPlayed();
+  if(animationsHavePlayed){
+    switch (true) {
+      case currentPage.homePage: exitHomePage();
+      break;
+      case currentPage.aboutPage: exitAboutPage();
+      break;
+      case currentPage.contactPage: exitContactPage();
+      break;
+    }
+    loadContactPage();
+  }else{
+    contactMenu.classList.add("shake");
+    contactMenu.classList.add("animated");
+    window.setTimeout(function(){
+      contactMenu.classList.remove("shake");
+    },1000);
+    return;
+  }
+});
