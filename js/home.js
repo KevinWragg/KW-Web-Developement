@@ -43,7 +43,7 @@ function updateCurrentPage(){
       currentPage.aboutPage = aboutAnimationPlayed;
       currentPage.contactPage = contactAnimationPlayed;
       updateCurrentPage();
-    },200);
+    },1000);
   }
 
 function resetAllPageLoads(){
@@ -110,7 +110,7 @@ function loadHomepage(){
             var designed = document.querySelector("#designed");
             designed.classList.add("tada");
             designed.classList.add("animated");
-          }, 490);
+          }, 420);
       }, 700);
 
       window.setTimeout(function () {
@@ -121,7 +121,7 @@ function loadHomepage(){
             var built = document.querySelector("#built");
             built.classList.add("tada");
             built.classList.add("animated");
-          }, 490);
+          }, 420);
       }, 2200);
 
       window.setTimeout(function () {
@@ -136,7 +136,7 @@ function loadHomepage(){
                 homeAnimationPlayed = true;
                 animationsPlayed();
               },300);
-          }, 490);
+          }, 420);
       }, 3700);
     }
     else{
@@ -211,7 +211,7 @@ loadHomepage();
 
 homeMenu.addEventListener("click", function(){
   animationsPlayed();
-  if(animationsHavePlayed){
+  if(animationsHavePlayed && !currentPage.homePage){
     switch (true) {
       case currentPage.homePage: exitHomePage();
       break;
@@ -233,7 +233,7 @@ homeMenu.addEventListener("click", function(){
 
 aboutMenu.addEventListener("click", function(){
   animationsPlayed();
-  if(animationsHavePlayed){
+  if(animationsHavePlayed && !currentPage.aboutPage){
     switch (true) {
       case currentPage.homePage: exitHomePage();
       break;
@@ -255,7 +255,7 @@ aboutMenu.addEventListener("click", function(){
 
 contactMenu.addEventListener("click", function(){
   animationsPlayed();
-  if(animationsHavePlayed){
+  if(animationsHavePlayed && !currentPage.contactPage){
     switch (true) {
       case currentPage.homePage: exitHomePage();
       break;
