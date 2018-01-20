@@ -20,28 +20,31 @@ h3{
 }
 h4{
     font-size: 22px;
+    margin-top: 6px;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgb(209, 209, 209);
 }
 h5{
   font-size: 20px;
-}
-.git-hub-contact{
-  display:block;
-  height:25px;
+  margin:2px;
 }
 a .text-center:hover{
   background-color: black;
 }
+.git-hub-link{
+
+}
 .navbar > div > .navbar-collapse > ul > li > a:hover{
   background-color: transparent;
-  color:#337ab7;
+  color:inherit;
 }
 .navbar-inverse .navbar-nav>.open>a{
   background-color: inherit;
   color:inherit;
 }
-.navbar-inverse .navbar-nav>.open>a:hover{
-  background-color: inherit;
+.navbar-inverse .navbar-nav>li>a:focus{
   color:inherit;
+  background-color: inherit;
 }
 .navbar-inverse .navbar-nav>.open>a:focus{
   background-color: inherit;
@@ -52,9 +55,7 @@ a .text-center:hover{
 }
 li > a{
   background-color: inherit;
-  padding-top:20px;
   font-size: 24px;
-  color:#424242;
   font-family: 'Old Standard TT', serif;
 }
 .git-hub-link{
@@ -75,6 +76,9 @@ li > a{
   width:900px;
   text-align: center;
 }
+.no-border{
+  border:0;
+}
 .jumbotron-styles{
   margin-top:40px;
   margin-bottom:250px;
@@ -88,7 +92,7 @@ li > a{
   background-color:rgba(0, 0, 0, 0);
 }
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
-  background-color: #efefef;
+  background-color: rgba(237, 237, 237, 0.8);
 }
 .dropdown-menu{
   background-color:rgb(0, 0, 0, 1);

@@ -1,0 +1,64 @@
+html{
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+body{
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+table{
+  margin:0 auto;
+}
+tr{
+  border:1px solid white;
+}
+td{
+  width: 400px;
+  padding:20px;
+  border:1px solid white;
+}
+.color-one{
+  color:white;
+  padding:20px;
+  text-align: center;
+  background-color: #000333;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  height:360px;
+  width:100%;
+}
+.color-two{
+  color:white;
+  padding:20px;
+  text-align: center;
+  background-color: #000333;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  height:360px;
+  width:100%;
+}
+.color-three{
+  color:white;
+  padding:20px;
+  text-align: center;
+  background-color: #000333;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  height:360px;
+  width:100%;
+}
+.float-left{
+  float:left;
+  background-color: #00040d;
+  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+  height:1200px;
+  width:29%;
+}
+footer{
+  position:fixed;
+  bottom:0;
+  background-color: gray;
+  width:100%;
+  height:40px;
+}
