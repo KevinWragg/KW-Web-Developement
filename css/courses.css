@@ -9,56 +9,47 @@ body{
   width:100%;
   margin:0;
   padding:0;
+  background-image:url("../images/courses.jpg");
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
 }
 table{
+  border-spacing: 8px;
   margin:0 auto;
+  padding-top: 60px;
 }
-tr{
-  border:1px solid white;
+h3{
+  margin:10px;
 }
 td{
-  width: 400px;
-  padding:20px;
-  border:1px solid white;
+  width: 450px;
+  padding:10px;
+  background-color: rgba(220, 220, 220, 0.6);
+  border-radius: 15px;
+  box-shadow: 2px 4px 8px rgba(50, 50, 50, 0.3);
 }
-.color-one{
-  color:white;
-  padding:20px;
+a:hover{
+  color:#b7b7b7;
+}
+a{
+  color:#efefef;
+}
+.main{
+  background-color: rgba(100, 100, 100, 0.6);
+  color:rgb(10, 10, 10);
   text-align: center;
-  background-color: #000333;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  height:360px;
+  height:100%;
   width:100%;
 }
-.color-two{
-  color:white;
-  padding:20px;
-  text-align: center;
-  background-color: #000333;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  height:360px;
-  width:100%;
-}
-.color-three{
-  color:white;
-  padding:20px;
-  text-align: center;
-  background-color: #000333;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  height:360px;
-  width:100%;
-}
-.float-left{
-  float:left;
-  background-color: #00040d;
-  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
-  height:1200px;
-  width:29%;
-}
-footer{
+#logo{
+  color:rgb(50, 50, 50);
+  font-family: dancing script;
+  font-size: 30px;
+  display:block;
   position:fixed;
-  bottom:0;
-  background-color: gray;
-  width:100%;
-  height:40px;
+  top:0;
+  left:0;
+  padding:3px;
+  padding-left:8px;
 }

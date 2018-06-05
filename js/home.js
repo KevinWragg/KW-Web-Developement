@@ -1,3 +1,13 @@
+var alert = document.querySelector(".btn");
+var popup = document.querySelector(".popup");
+var popupText = document.querySelector(".popup__text");
+
+alert.addEventListener("click", function(){
+   alert.classList.add("hide");
+   popup.classList.add("hide");
+   popupText.classList.add("hide");
+});
+
 var section = document.querySelector("section");
 var showPageData = document.querySelector("section").innerHTML;
 var holdAboutData = document.querySelector(".holdAboutData").innerHTML;

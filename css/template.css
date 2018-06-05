@@ -31,6 +31,36 @@ h5{
 a .text-center:hover{
   background-color: black;
 }
+.hide{
+   display:none;
+}
+.popup{
+   display:inline-block;
+   width:80%;
+   border-radius: 3px;
+   background-image: linear-gradient(to right bottom, rgba(200, 200, 200, .9), rgba(180, 180, 180, .9));
+   position:absolute;
+   top:5rem;
+   left: 50%;
+   transform: translate(-50%, 0);
+   z-index:100;
+}
+.popup__text{
+   font-size: 17px;
+   padding: 2rem;
+   padding-top: 2.4rem;
+   text-align: center;
+   line-height: 1.5;
+}
+.btn{
+   display:block;
+   margin:0 auto;
+   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .2);
+   outline: none !important;
+}
+.btn:active{
+   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
 .git-hub-link{
 
 }
@@ -214,9 +244,17 @@ li > a{
     margin:auto;
   }
 }
-@media(max-width: 800px){
+@media(max-width: 810px){
   .git-hub{
     display:none;
+  }
+}
+@media(max-width: 850px){
+  /* .git-hub{
+    display:none;
+  } */
+  .nav>li>a{
+    padding-left: 5px;
   }
 }
 @media (min-width 1200px){
